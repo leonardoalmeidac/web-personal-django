@@ -1,0 +1,17 @@
+{% extends 'nucleo/index.html' %} {% block title %} Servicios {% endblock %} {% block background %} {% load static %} {% static 'nucleo/img/portafolio.jpg' %} {% endblock %} {% block header %}
+<h1> Servicios y Proyectos </h1>
+<span class="subheading"> Aquí puedes ver mis proyectos realizados. </span> {% endblock %} {% block content %}
+<!-- Aqui se van a iterar los contenidos de nuestros 
+    proyectos que vienen desde la BD del admin de django
+-->
+{% for servicio in services %}
+<div class="row project">
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="{{ servicio.image.url }}" alt="">
+    </div>
+    <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading title"> {{servicio.title }}</h2>
+        <p> {{servicio.description}} </p>
+    </div>
+</div>
+{% endfor %} {% endblock %}
